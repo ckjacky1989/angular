@@ -1,0 +1,55 @@
+<!-- Name: Cham Kuen Chow
+     Date Updated: Nov 28 2024
+     Description: Nation Dialog for assignment 4
+     Email: chowcham@sheridancollege.ca -->
+
+<!-- Country page -->
+<!--Title-->
+<h1 mat-dialog-title>{{name}}</h1>
+
+<!--Country content-->
+<mat-dialog-content>
+
+<!--Info of a country-->
+Country Code: {{code}} ({{code2}})<br>
+Continent: {{continent}}<br>
+Region: {{region}}<br>
+Surface Area: {{surfaceArea}} km<sup>2</sup><br>
+Population: {{population}}<br>
+Map<br>
+<img [src]="mapURL" width="100%"><br>
+Major Cities<br>
+<!--mat-table for cities in that country-->
+<mat-table [dataSource]="dataSource" matSort #sortCities="matSort" class="mat-elevation-z24">
+     <!-- define column(cell) templates -->
+     <ng-container matColumnDef="Name">
+       <mat-header-cell mat-sort-header *matHeaderCellDef>Name</mat-header-cell>
+       <mat-cell *matCellDef="let c">{{c.Name}}</mat-cell>
+     </ng-container>
+     <ng-container  matColumnDef="District">
+       <mat-header-cell mat-sort-header *matHeaderCellDef>District</mat-header-cell>
+       <mat-cell *matCellDef="let c">{{c.District}}</mat-cell>
+     </ng-container>
+     <ng-container  matColumnDef="Population">
+       <mat-header-cell mat-sort-header *matHeaderCellDef>Population</mat-header-cell>
+       <mat-cell *matCellDef="let c">{{c.Population}}</mat-cell>
+     </ng-container>
+     <!-- define row templates -->
+      <!-- headers refer to headers = ["name", "district", "population"]; in component-->
+     <mat-header-row *matHeaderRowDef="headers"></mat-header-row>
+     <mat-row *matRowDef="let row; columns: headers"></mat-row>
+</mat-table>
+<!-- Paginator -->
+<mat-paginator #pageCities
+[pageSizeOptions]="[10, 20, 30, 50]"
+showFirstLastButtons>
+</mat-paginator>
+
+</mat-dialog-content>
+
+<!--Close button, place it to center-->
+<mat-dialog-actions align="center">
+<button mat-flat-button color="accent"
+mat-dialog-close="true">Close</button>
+</mat-dialog-actions>
+

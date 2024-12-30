@@ -1,0 +1,28 @@
+/*  Name: Cham Kuen Chow
+    Date Updated: Nov 28 2024
+    Description: CSS for template of assignment 4
+    Email: chowcham@sheridancollege.ca*/
+/* wrapper for cards */
+.gridblock {
+    display: grid;
+    /*Width of mat-card ranges from 200px to 1 fraction*/
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+
+  }
+  
+mat-card-content{
+    text-align: center;
+  }
+mat-toolbar {
+    color:#fff;
+    background-color:blueviolet;
+}
+.toolbar-row-flex {
+    display: flex; 
+    flex-wrap: wrap; 
+    /* Make space between flex items */
+    justify-content: space-between; 
+    /* Align items vertically to the center */
+    align-items: center; 
+}
